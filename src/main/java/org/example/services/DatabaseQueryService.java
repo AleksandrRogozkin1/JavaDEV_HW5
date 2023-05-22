@@ -17,8 +17,8 @@ public class DatabaseQueryService {
         ResultSet resultSet;
         Connection connection = Database.getInstance().getConnection();
         Statement statement = connection.createStatement();
-        String maxProjectCountQueryStr =ReaderFileSQL.readSQLFile(path);
-        resultSet = statement.executeQuery(maxProjectCountQueryStr);
+        String rsl =ReaderFileSQL.readSQLFile(path);
+        resultSet = statement.executeQuery(rsl);
         return resultSet;
     }
     public List<MaxProjectCountClient> findMaxProjectsClient(){
