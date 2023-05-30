@@ -5,10 +5,7 @@ import org.example.select.MaxProjectCountClient;
 import org.example.select.MaxSalaryWorker;
 import org.example.select.OldestYoungestWorkers;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,9 +13,14 @@ public class DatabaseQueryService {
     private ResultSet queryResult(String path) throws SQLException {
         ResultSet resultSet;
         Connection connection = Database.getInstance().getConnection();
-        Statement statement = connection.createStatement();
         String rsl =ReaderFileSQL.readSQLFile(path);
-        resultSet = statement.executeQuery(rsl);
+//        Statement statement = connection.createStatement();
+        try {
+            PreparedStatement st = connection.prepareStatement(rsl);
+            resultSet = st.executeQuery();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         return resultSet;
     }
     public List<MaxProjectCountClient> findMaxProjectsClient(){
