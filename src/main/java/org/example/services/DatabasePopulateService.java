@@ -75,9 +75,10 @@ public class DatabasePopulateService {
                 new ProjectWorkerC(10, 5)
         );
         DatabasePopulateService databasePopulateService = new DatabasePopulateService();
-        databasePopulateService.insertProject(projects);
-        databasePopulateService.insertClient(clients);
         databasePopulateService.insertWorker(workers);
+        databasePopulateService.insertClient(clients);
+        databasePopulateService.insertProject(projects);
+
         databasePopulateService.insertProjectWorker(projectWorker);
 
 

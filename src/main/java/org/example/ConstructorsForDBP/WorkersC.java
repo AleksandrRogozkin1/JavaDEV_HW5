@@ -5,8 +5,7 @@ import lombok.Data;
 
 import java.time.LocalDate;
 
-@Data
-@AllArgsConstructor
+@Data @AllArgsConstructor
 public class WorkersC {
 
     private String name;
