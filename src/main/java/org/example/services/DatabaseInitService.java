@@ -10,10 +10,8 @@ public class DatabaseInitService {
     public static void main(String[] args) {
         Connection connection = Database.getInstance().getConnection();
         try {
-            PreparedStatement statement = connection.prepareStatement(ReaderFileSQL.readSQLFile("sql/init_db.sql"));
-
-//            Statement statement = connection.createStatement();
-//            statement.execute(ReaderFileSQL.readSQLFile("sql/init_db.sql"));
+            Statement statement = connection.createStatement();
+            statement.execute(ReaderFileSQL.readSQLFile("sql/init_db.sql"));
 //            System.out.println(ReaderFileSQL.readSQLFile("sql/init_db.sql"));
         } catch (SQLException e) {
             throw new RuntimeException(e);
