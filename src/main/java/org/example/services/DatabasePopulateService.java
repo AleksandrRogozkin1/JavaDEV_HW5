@@ -84,7 +84,7 @@ public class DatabasePopulateService {
 
     }
     public void insertWorker(List<WorkersC> workers){
-        try (PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO worker  (name, birthday, level, salary) VALUES (? , ? , ? , ? )")){
+        try (PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO WORKER (name, birthday, level, salary) VALUES (? , ? , ? , ? )")){
             for (WorkersC worker : workers) {
                 preparedStatement.setString(1, worker.getName());
                 preparedStatement.setString(2, worker.getBirthday().toString());
